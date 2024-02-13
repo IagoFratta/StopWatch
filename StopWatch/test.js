@@ -2,14 +2,15 @@ let hh = 0
 let mm = 0
 let ss = 0
 let iniciar = false
+let jaClicado
 let cron
 
 function start(){
     if(!iniciar){
-       cron = setInterval(() => {
-        timer()
-    },1000)
-        console.log(cron)
+       cron = setInterval(() => {timer()},1000)
+       jaClicado = true
+    }else if (jaClicado) {
+        stop()
     }
    
 }
@@ -26,6 +27,7 @@ function reset(){
     hh = 0
     mm = 0
     ss = 0
+    iniciar = false
 
     document.getElementById("cont").innerHTML = "00:00:00"
 }
